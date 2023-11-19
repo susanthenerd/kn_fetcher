@@ -1,0 +1,94 @@
+import requests
+import pandas as pd
+
+
+def aggregate_data(url_base, contest_id=None, problem_id=None):
+    limit = 50
+    offset = 0
+
+    # Formulate URL based on provided parameters
+    url_params = "ascending=false"
+    if contest_id:
+        url_params += f"&contest_id={contest_id}"
+    if problem_id:
+        url_params += f"&problem_id={problem_id}"
+
+    url = f"{url_base}?{url_params}&limit={limit}&offset={offset}&ordering=id"
+    response = requests.get(url)
+    data = response.json()
+
+    total_count = data["data"]["count"]
+    total_pages = (total_count // limit) + (1 if total_count % limit else 0)
+
+    all_submissions = data["data"]["submissions"]
+    unique_users = data["data"]["users"]
+    problems_details = data["data"]["problems"]
+
+    # Loop for the rest of the pages
+    for _ in range(1, total_pages):
+        offset += limit
+        url = f"{url_base}?{url_params}&limit={limit}&offset={offset}&ordering=id"
+        response = requests.get(url)
+        data = response.json()
+        all_submissions.extend(data["data"]["submissions"])
+        unique_users.update(data["data"]["users"])
+
+    return {
+        "submissions": all_submissions,
+        "users": unique_users,
+        "problems": problems_details
+    }
+
+
+def save_data_to_excel(data, file_name="data.xlsx"):
+    with pd.ExcelWriter(file_name) as writer:
+        # Submissions sheets
+        problems = data["problems"]
+        for problem_id, problem_detail in problems.items():
+            problem_submissions = [sub for sub in data["submissions"] if int(sub["problem_id"]) == int(problem_id)]
+            print(
+                f"Number of submissions for problem {problem_detail['name']}: {len(problem_submissions)}")  # Debug print
+            submissions_data = []
+            for sub in problem_submissions:
+                username = data["users"][str(sub["user_id"])]["name"]
+                timestamp = pd.to_datetime(sub["created_at"]).strftime('%Y-%m-%d %H:%M:%S')
+                compile_error = "Yes" if sub["compile_error"] else "No"
+
+                if sub["status"] == "finished":
+                    submissions_data.append([
+                        sub["id"],
+                        timestamp,
+                        username,
+                        problem_detail["name"],
+                        problem_detail["id"],
+                        sub["score"],
+                        sub["language"],
+                        compile_error,
+                        sub["max_time"],
+                        sub["max_memory"]
+                    ])
+            df_submissions = pd.DataFrame(submissions_data,
+                                          columns=["ID", "Created At", "Username", "Problem Name", "Problem ID",
+                                                   "Score", "Language", "Compile Error", "Max Time", "Max Memory"])
+            df_submissions.to_excel(writer, sheet_name=problem_detail["name"][:30], index=False)
+
+        # Users sheet
+        users_data = [[user_id, user_details["name"]] for user_id, user_details in data["users"].items()]
+        df_users = pd.DataFrame(users_data, columns=["ID", "Name"])
+        df_users.to_excel(writer, sheet_name="Users", index=False)
+
+        # Problems sheet
+        problems_data = [[problem["id"], problem["name"]] for problem in data["problems"].values()]
+        df_problems = pd.DataFrame(problems_data, columns=["ID", "Name"])
+        df_problems.to_excel(writer, sheet_name="Problems", index=False)
+
+
+# Example of how you'd use the functions:
+
+url_base = "https://kilonova.ro/api/submissions/get"
+contest_id_url = 34
+problem_id_url = None  # Set this to None if you want all problems or a specific problem
+
+all_submissions_data = aggregate_data(url_base, contest_id_url, problem_id_url)
+if all_submissions_data:
+    save_data_to_excel(all_submissions_data)

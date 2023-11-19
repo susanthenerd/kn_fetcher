@@ -1,0 +1,651 @@
+import sqlite3
+from datetime import datetime, timedelta
+import statistics
+
+
+def connect_to_db(db_path):
+    conn = sqlite3.connect(db_path)
+    return conn
+
+
+def preprocess_submissions(conn):
+    query = """
+    WITH First100Submissions AS (
+        SELECT User_ID, Problem_ID, MIN(ID) as Submission_ID
+        FROM Submissions
+        WHERE Score >= 100
+        GROUP BY User_ID, Problem_ID
+    )
+    DELETE FROM Submissions
+    WHERE Score >= 100 AND ID NOT IN (SELECT Submission_ID FROM First100Submissions);
+    """
+    conn.execute(query)
+    conn.commit()
+
+
+def basic_stats(conn, problem_id):
+    query = """
+    SELECT 
+        COUNT(ID) as Total_Submissions,
+        COUNT(DISTINCT User_ID) as Unique_Users,
+        AVG(Score) as Average_Score
+    FROM Submissions
+    WHERE Problem_ID = ?
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    results = cursor.fetchone()
+    cursor.close()
+    return {
+        "Total_Submissions": results[0],
+        "Unique_Users": results[1],
+        "Average_Score": results[2]
+    }
+
+
+def score_distribution(conn, problem_id):
+    query = """
+    SELECT Score
+    FROM Submissions
+    WHERE Problem_ID = ?
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    scores = [score[0] for score in cursor.fetchall()]
+    cursor.close()
+
+    perfect_scores = sum(1 for score in scores if score == 100)
+    above_80_scores = sum(1 for score in scores if score >= 80)
+    below_50_scores = sum(1 for score in scores if score < 50)
+
+    return {
+        "Percentage_Perfect_Scores": (perfect_scores / len(scores)) * 100 if scores else 0,
+        "Percentage_Above_80": (above_80_scores / len(scores)) * 100 if scores else 0,
+        "Percentage_Below_50": (below_50_scores / len(scores)) * 100 if scores else 0,
+        "Median_Score": statistics.median(scores) if scores else None,
+        "Mode_Score": statistics.mode(scores) if scores else None,
+        "Score_Standard_Deviation": statistics.stdev(scores) if len(scores) > 1 else None
+    }
+
+
+def user_stats(conn, problem_id):
+    query = """
+    SELECT User_ID, AVG(Score) as Average_Score, COUNT(ID) as Attempts
+    FROM Submissions
+    WHERE Problem_ID = ?
+    GROUP BY User_ID
+    ORDER BY Average_Score DESC, Attempts
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    users_data = cursor.fetchall()
+    cursor.close()
+
+    top_user = users_data[0] if users_data else None
+    bottom_user = users_data[-1] if users_data else None
+
+    return {
+        "Top_User_ID": top_user[0] if top_user else None,
+        "Top_User_Average_Score": top_user[1] if top_user else None,
+        "Top_User_Attempts": top_user[2] if top_user else None,
+        "Bottom_User_ID": bottom_user[0] if bottom_user else None,
+        "Bottom_User_Average_Score": bottom_user[1] if bottom_user else None,
+        "Bottom_User_Attempts": bottom_user[2] if bottom_user else None
+    }
+
+
+def temporal_stats(conn, problem_id):
+    start_time_str = "2023-11-05 10:00:00"
+    end_time_str = "2023-11-05 14:00:00"
+    start_time = datetime.strptime(start_time_str, "%Y-%m-%d %H:%M:%S")
+
+    query = """
+    SELECT Created_At, Score
+    FROM Submissions
+    WHERE Problem_ID = ? AND Created_At BETWEEN ? AND ?
+    ORDER BY Created_At
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id, start_time_str, end_time_str))
+    submissions_data = cursor.fetchall()
+    cursor.close()
+
+    dates = [data[0] for data in submissions_data]
+    scores = [data[1] for data in submissions_data]
+
+    # Extract the dates and hours for aggregation
+    submission_dates = [date.split(" ")[0] for date in dates]
+    submission_hours = [date.split(" ")[1].split(":")[0] for date in dates]
+
+    most_common_hour = statistics.mode(submission_hours) if submission_hours else None
+    fastest_solve = (datetime.strptime(dates[0], "%Y-%m-%d %H:%M:%S") - start_time).seconds if dates else None
+
+    return {
+        "Most_Common_Submission_Hour": most_common_hour,
+        "Average_Score_Over_Time": sum(scores) / len(scores) if scores else None,
+        "Fastest_Solve_seconds": fastest_solve
+    }
+
+
+def performance_stats(conn, problem_id):
+    query = """
+    SELECT 
+        AVG(Max_Time_ms) as Average_Time,
+        AVG(Max_Memory_bytes) as Average_Memory,
+        MIN(Max_Time_ms) as Min_Time,
+        MIN(Max_Memory_bytes) as Min_Memory
+    FROM Submissions
+    WHERE Problem_ID = ?
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    results = cursor.fetchone()
+    cursor.close()
+    return {
+        "Average_Time_ms": results[0],
+        "Average_Memory_bytes": results[1],
+        "Min_Time_ms": results[2],
+        "Min_Memory_bytes": results[3]
+    }
+
+
+def resubmission_analysis(conn, problem_id):
+    query = """
+    SELECT User_ID, MIN(Score) as First_Score, MAX(Score) as Last_Score
+    FROM Submissions
+    WHERE Problem_ID = ?
+    GROUP BY User_ID
+    HAVING COUNT(ID) > 1
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    users_data = cursor.fetchall()
+    cursor.close()
+
+    improvements = [data[2] - data[1] for data in users_data]
+    improved_users = sum(1 for imp in improvements if imp > 0)
+    no_change_or_worse_users = sum(1 for imp in improvements if imp <= 0)
+
+    return {
+        "Average_Score_Improvement": sum(improvements) / len(improvements) if improvements else None,
+        "Users_Improved": improved_users,
+        "Users_No_Change_Or_Worse": no_change_or_worse_users
+    }
+
+
+def performance_efficiency(conn, problem_id):
+    query = """
+    SELECT Score, Max_Time_ms, Max_Memory_bytes
+    FROM Submissions
+    WHERE Problem_ID = ?
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    submissions_data = cursor.fetchall()
+    cursor.close()
+
+    average_time = sum(data[1] for data in submissions_data) / len(submissions_data) if submissions_data else None
+    average_memory = sum(data[2] for data in submissions_data) / len(submissions_data) if submissions_data else None
+
+    efficient_submissions = sum(
+        1 for data in submissions_data if data[0] > 80 and data[1] < average_time and data[2] < average_memory)
+
+    return {
+        "Efficient_Submissions": efficient_submissions
+    }
+
+
+def score_clusters(conn, problem_id):
+    query = """
+    SELECT Score
+    FROM Submissions
+    WHERE Problem_ID = ?
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    scores = [score[0] for score in cursor.fetchall()]
+    cursor.close()
+
+    clusters = {
+        "0-20": sum(1 for score in scores if 0 <= score < 20),
+        "20-40": sum(1 for score in scores if 20 <= score < 40),
+        "40-60": sum(1 for score in scores if 40 <= score < 60),
+        "60-80": sum(1 for score in scores if 60 <= score < 80),
+        "80-100": sum(1 for score in scores if 80 <= score <= 100)
+    }
+
+    return clusters
+
+
+def engagement_metrics(conn, problem_id):
+    query = """
+    SELECT User_ID, COUNT(ID) as Attempts
+    FROM Submissions
+    WHERE Problem_ID = ?
+    GROUP BY User_ID
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    users_data = cursor.fetchall()
+    cursor.close()
+
+    single_submission_users = sum(1 for data in users_data if data[1] == 1)
+    multiple_submission_users = len(users_data) - single_submission_users
+
+    return {
+        "Average_Submissions_Per_User": sum(data[1] for data in users_data) / len(users_data) if users_data else None,
+        "Single_Submission_Users": single_submission_users,
+        "Multiple_Submission_Users": multiple_submission_users
+    }
+
+
+def rapid_improvement(conn, problem_id):
+    query = """
+    SELECT User_ID, COUNT(ID) as Attempts
+    FROM Submissions
+    WHERE Problem_ID = ? AND Score = 100
+    GROUP BY User_ID
+    ORDER BY Attempts ASC
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    users_data = cursor.fetchall()
+    cursor.close()
+
+    least_attempts_for_perfect = users_data[0][1] if users_data else None
+
+    return {
+        "Fewest_Attempts_For_Perfect_Score": least_attempts_for_perfect
+    }
+
+
+def late_bloomers(conn, problem_id):
+    query = """
+    SELECT User_ID, MIN(Score) as First_Score, MAX(Score) as Last_Score
+    FROM Submissions
+    WHERE Problem_ID = ?
+    GROUP BY User_ID
+    HAVING COUNT(ID) > 1
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    users_data = cursor.fetchall()
+    cursor.close()
+
+    late_bloomers_count = sum(1 for data in users_data if data[1] < 50 and data[2] >= 80)
+
+    return {
+        "Late_Bloomers": late_bloomers_count
+    }
+
+
+def consistency_in_performance(conn, problem_id):
+    query = """
+    SELECT User_ID, AVG(Max_Time_ms) as Average_Time, AVG(Max_Memory_bytes) as Average_Memory
+    FROM Submissions
+    WHERE Problem_ID = ?
+    GROUP BY User_ID
+    HAVING COUNT(ID) > 1
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    users_data = cursor.fetchall()
+    cursor.close()
+
+    all_times = [data[1] for data in users_data]
+    all_memories = [data[2] for data in users_data]
+    median_time = statistics.median(all_times) if all_times else None
+    median_memory = statistics.median(all_memories) if all_memories else None
+
+    consistent_users = sum(1 for data in users_data if data[1] < median_time and data[2] < median_memory)
+
+    return {
+        "Users_Below_Median_Performance": consistent_users
+    }
+
+
+def submission_patterns(conn, problem_id):
+    query = """
+    SELECT User_ID, Created_At
+    FROM Submissions
+    WHERE Problem_ID = ?
+    ORDER BY User_ID, Created_At
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    submissions_data = cursor.fetchall()
+    cursor.close()
+
+    time_diffs = []
+    prev_user = None
+    prev_time = None
+
+    for data in submissions_data:
+        user, created_at = data
+        created_at_datetime = datetime.strptime(created_at, "%Y-%m-%d %H:%M:%S")
+
+        if prev_user == user and prev_time:
+            time_diff = (created_at_datetime - prev_time).seconds
+            time_diffs.append(time_diff)
+
+        prev_user = user
+        prev_time = created_at_datetime
+
+    average_time_diff = sum(time_diffs) / len(time_diffs) if time_diffs else None
+
+    return {
+        "Average_Time_Between_Submissions_seconds": average_time_diff
+    }
+
+
+def compile_error_analysis(conn, problem_id):
+    query = """
+    SELECT User_ID, COUNT(ID) as Total_Submissions, SUM(CASE WHEN Compile_Error = 'yes' THEN 1 ELSE 0 END) as Compile_Errors
+    FROM Submissions
+    WHERE Problem_ID = ?
+    GROUP BY User_ID
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    users_data = cursor.fetchall()
+    cursor.close()
+
+    users_no_compile_errors = sum(1 for data in users_data if data[2] == 0)
+    average_compile_errors_before_success = sum(
+        data[2] for data in users_data if data[2] > 0 and data[1] > data[2]) / len(users_data) if users_data else None
+
+    return {
+        "Users_Without_Compile_Errors": users_no_compile_errors,
+        "Average_Compile_Errors_Before_Success": average_compile_errors_before_success
+    }
+
+
+def score_progression(conn, problem_id):
+    query = """
+    SELECT User_ID, Score
+    FROM Submissions
+    WHERE Problem_ID = ?
+    ORDER BY User_ID, Created_At
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    submissions_data = cursor.fetchall()
+    cursor.close()
+
+    score_diffs = []
+    prev_user = None
+    prev_score = None
+
+    for data in submissions_data:
+        user, score = data
+
+        if prev_user == user and prev_score:
+            score_diff = score - prev_score
+            score_diffs.append(score_diff)
+
+        prev_user = user
+        prev_score = score
+
+    average_score_diff = sum(score_diffs) / len(score_diffs) if score_diffs else None
+
+    return {
+        "Average_Score_Difference_Between_Submissions": average_score_diff
+    }
+
+
+def submissions_over_time(conn, problem_id):
+    start_time_str = "2023-11-05 10:00:00"
+    end_time_str = "2023-11-05 14:00:00"
+
+    query = """
+    SELECT strftime('%H:%M', Created_At) as TimeSlot, COUNT(ID) as Submissions_Count
+    FROM Submissions
+    WHERE Problem_ID = ? AND Created_At BETWEEN ? AND ?
+    GROUP BY TimeSlot
+    ORDER BY TimeSlot
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id, start_time_str, end_time_str))
+    submissions_data = cursor.fetchall()
+    cursor.close()
+
+    # Prepare data for all 15-minute intervals
+    current_time = datetime.strptime(start_time_str, "%Y-%m-%d %H:%M:%S")
+    end_time = datetime.strptime(end_time_str, "%Y-%m-%d %H:%M:%S")
+    interval_data = {}
+
+    while current_time < end_time:
+        time_slot = current_time.strftime('%H:%M')
+        interval_data[time_slot] = 0
+        current_time += timedelta(minutes=15)
+
+    for data in submissions_data:
+        interval_data[data[0]] = data[1]
+
+    return interval_data
+
+
+def difficulty_index(conn, problem_id):
+    query = """
+    SELECT AVG(Score) as Average_Score
+    FROM Submissions
+    WHERE Problem_ID = ?
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    average_score = cursor.fetchone()[0]
+    cursor.close()
+
+    # We'll use a simple formula: Difficulty = 100 - Average_Score
+    return {
+        "Difficulty_Index": 100 - average_score
+    }
+
+
+def persistence_index(conn, problem_id):
+    query = """
+    SELECT User_ID, COUNT(ID) as Attempts
+    FROM Submissions
+    WHERE Problem_ID = ? AND Score = 100
+    GROUP BY User_ID
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    users_data = cursor.fetchall()
+    cursor.close()
+
+    average_attempts_for_perfect = sum(data[1] for data in users_data) / len(users_data) if users_data else None
+
+    return {
+        "Average_Attempts_For_Perfect_Score": average_attempts_for_perfect
+    }
+
+
+def performance_to_score_ratio(conn, problem_id):
+    query = """
+    SELECT AVG(Max_Time_ms) as Average_Time, AVG(Max_Memory_bytes) as Average_Memory, AVG(Score) as Average_Score
+    FROM Submissions
+    WHERE Problem_ID = ?
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    results = cursor.fetchone()
+    cursor.close()
+
+    # We'll calculate a simple ratio: (Average_Score / Average_Time) and (Average_Score / Average_Memory)
+    time_ratio = results[2] / results[0] if results[0] else None
+    memory_ratio = results[2] / results[1] if results[1] else None
+
+    return {
+        "Score_to_Time_Ratio": time_ratio,
+        "Score_to_Memory_Ratio": memory_ratio
+    }
+
+
+def first_attempt_insights(conn, problem_id):
+    query = """
+    WITH FirstAttempts AS (
+        SELECT User_ID, MIN(ID) as First_Submission_ID
+        FROM Submissions
+        WHERE Problem_ID = ?
+        GROUP BY User_ID
+    )
+    SELECT AVG(s.Score)
+    FROM Submissions s
+    JOIN FirstAttempts fa ON s.ID = fa.First_Submission_ID
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    average_first_attempt_score = cursor.fetchone()[0]
+    cursor.close()
+
+    return {
+        "Average_First_Attempt_Score": average_first_attempt_score
+    }
+
+
+def diverse_problem_solvers(conn):
+    query = """
+    SELECT User_ID, COUNT(DISTINCT Problem_ID) as Problems_Attempted
+    FROM Submissions
+    GROUP BY User_ID
+    ORDER BY Problems_Attempted DESC
+    LIMIT 5
+    """
+    cursor = conn.cursor()
+    cursor.execute(query)
+    top_5_users = cursor.fetchall()
+    cursor.close()
+
+    return {
+        "Top_5_Diverse_Solvers": top_5_users
+    }
+
+
+def quick_solvers(conn, problem_id):
+    query = """
+    WITH RankedSubmissions AS (
+        SELECT User_ID, Score,
+               RANK() OVER(PARTITION BY User_ID ORDER BY Created_At) as rnk
+        FROM Submissions
+        WHERE Problem_ID = ?
+    )
+    SELECT User_ID
+    FROM RankedSubmissions
+    WHERE rnk <= 2 AND Score > 90
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    users = [user[0] for user in cursor.fetchall()]
+    cursor.close()
+    return users
+
+
+def consistent_performers(conn):
+    query = """
+    SELECT User_ID, AVG(Score) as Average_Score
+    FROM Submissions
+    GROUP BY User_ID
+    HAVING Average_Score > 90
+    """
+    cursor = conn.cursor()
+    cursor.execute(query)
+    users = [user[0] for user in cursor.fetchall()]
+    cursor.close()
+    return users
+
+
+def memory_and_time_efficiency(conn, problem_id):
+    query = """
+    SELECT AVG(Max_Time_ms) as Average_Time, AVG(Max_Memory_bytes) as Average_Memory
+    FROM Submissions
+    WHERE Problem_ID = ?
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    averages = cursor.fetchone()
+    cursor.close()
+
+    average_time, average_memory = averages
+    efficient_users_query = """
+    SELECT User_ID
+    FROM Submissions
+    WHERE Problem_ID = ? AND Max_Time_ms < ? AND Max_Memory_bytes < ?
+    """
+    cursor = conn.cursor()
+    cursor.execute(efficient_users_query, (problem_id, average_time, average_memory))
+    users = [user[0] for user in cursor.fetchall()]
+    cursor.close()
+    return users
+
+
+def improvement_potential(conn, problem_id):
+    query = """
+    SELECT User_ID, MAX(Score) - MIN(Score) as Improvement
+    FROM Submissions
+    WHERE Problem_ID = ?
+    GROUP BY User_ID
+    HAVING COUNT(ID) > 1
+    ORDER BY Improvement DESC
+    LIMIT 5
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    top_improvers = cursor.fetchall()
+    cursor.close()
+    return top_improvers
+
+
+def user_engagement(conn):
+    query = """
+    SELECT User_ID, 
+           (julianday(MAX(Created_At)) - julianday(MIN(Created_At))) * 24 * 60 as Engagement_Minutes
+    FROM Submissions
+    GROUP BY User_ID
+    ORDER BY Engagement_Minutes DESC
+    LIMIT 5
+    """
+    cursor = conn.cursor()
+    cursor.execute(query)
+    top_engaged_users = cursor.fetchall()
+    cursor.close()
+    return top_engaged_users
+
+
+def problem_hotspots(conn, problem_id):
+    query = """
+    SELECT strftime('%H:%M', Created_At) as TimeSlot, COUNT(ID) as Submissions_Count
+    FROM Submissions
+    WHERE Problem_ID = ?
+    GROUP BY TimeSlot
+    ORDER BY Submissions_Count DESC
+    LIMIT 5
+    """
+    cursor = conn.cursor()
+    cursor.execute(query, (problem_id,))
+    hotspots = cursor.fetchall()
+    cursor.close()
+    return hotspots
+
+
+# Recompute the statistics with the modifications
+def compute_statistics(conn, problem_id):
+    stats = {
+        "Problem_ID": problem_id,
+        "Basic_Stats": basic_stats(conn, problem_id),
+        "Performance_Stats": performance_stats(conn, problem_id),
+        "Score_Distribution": score_distribution(conn, problem_id),
+        "User_Stats": user_stats(conn, problem_id),
+        "Temporal_Stats": temporal_stats(conn, problem_id)
+    }
+    return stats
+
+
+def close_connection(conn):
+    conn.close()
+
+# Usage:
+# conn = connect_to_db("path_to_your_db")
+# preprocess_submissions(conn)
+# [Call any statistics function as required]
+# close_connection(conn)

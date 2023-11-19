@@ -1,0 +1,1756 @@
+
+@contest "2023 Romanian Collegiate Programming Contest (RCPC)"
+@contlen 300
+@problems 26
+@teams 109
+@submissions 1566
+@p ,G. Minimize Sum,20,0
+@p ,J. Parallelogram,20,0
+@p ,A. Maximum Distance,20,0
+@p ,C. Basketball,20,0
+@p ,K. Blabla,20,0
+@p ,B. The floor is lava!,20,0
+@p ,E. Fiboxor,20,0
+@p ,H. AI Thoughts,20,0
+@p 	,I. KSumT,20,0
+@p 
+,D. Edenland,20,0
+@p ,L. Dush,20,0
+@p ,F. Suceava,20,0
+@p 
+,M. Dragons,20,0
+@p ,G. Minimize Sum,20,0
+@p ,J. Parallelogram,20,0
+@p ,A. Maximum Distance,20,0
+@p ,C. Basketball,20,0
+@p ,K. Blabla,20,0
+@p ,B. The floor is lava!,20,0
+@p ,E. Fiboxor,20,0
+@p ,H. AI Thoughts,20,0
+@p ,I. KSumT,20,0
+@p ,D. Edenland,20,0
+@p ,L. Dush,20,0
+@p ,F. Suceava,20,0
+@p ,M. Dragons,20,0
+@t 1,0,1,"User_1"
+@t 2,0,1,"User_2"
+@t 3,0,1,"User_3"
+@t 4,0,1,"User_4"
+@t 5,0,1,"User_5"
+@t 6,0,1,"User_6"
+@t 7,0,1,"User_7"
+@t 8,0,1,"User_8"
+@t 9,0,1,"User_9"
+@t 10,0,1,"User_10"
+@t 11,0,1,"User_11"
+@t 12,0,1,"User_12"
+@t 13,0,1,"User_13"
+@t 14,0,1,"User_14"
+@t 15,0,1,"User_15"
+@t 16,0,1,"User_16"
+@t 17,0,1,"User_17"
+@t 18,0,1,"User_18"
+@t 19,0,1,"User_19"
+@t 20,0,1,"User_20"
+@t 21,0,1,"User_21"
+@t 22,0,1,"User_22"
+@t 23,0,1,"User_23"
+@t 24,0,1,"User_24"
+@t 25,0,1,"User_25"
+@t 26,0,1,"User_26"
+@t 27,0,1,"User_27"
+@t 28,0,1,"User_28"
+@t 29,0,1,"User_29"
+@t 30,0,1,"User_30"
+@t 31,0,1,"User_31"
+@t 32,0,1,"User_32"
+@t 33,0,1,"User_33"
+@t 34,0,1,"User_34"
+@t 35,0,1,"User_35"
+@t 36,0,1,"User_36"
+@t 37,0,1,"User_37"
+@t 38,0,1,"User_38"
+@t 39,0,1,"User_39"
+@t 40,0,1,"User_40"
+@t 41,0,1,"User_41"
+@t 42,0,1,"User_42"
+@t 43,0,1,"User_43"
+@t 44,0,1,"User_44"
+@t 45,0,1,"User_45"
+@t 46,0,1,"User_46"
+@t 47,0,1,"User_47"
+@t 48,0,1,"User_48"
+@t 49,0,1,"User_49"
+@t 50,0,1,"User_50"
+@t 51,0,1,"User_51"
+@t 52,0,1,"User_52"
+@t 53,0,1,"User_53"
+@t 54,0,1,"User_54"
+@t 55,0,1,"User_55"
+@t 56,0,1,"User_56"
+@t 57,0,1,"User_57"
+@t 58,0,1,"User_58"
+@t 59,0,1,"User_59"
+@t 60,0,1,"User_60"
+@t 61,0,1,"User_61"
+@t 62,0,1,"User_62"
+@t 63,0,1,"User_63"
+@t 64,0,1,"User_64"
+@t 65,0,1,"User_65"
+@t 66,0,1,"User_66"
+@t 67,0,1,"User_67"
+@t 68,0,1,"User_68"
+@t 69,0,1,"User_69"
+@t 70,0,1,"User_70"
+@t 71,0,1,"User_71"
+@t 72,0,1,"User_72"
+@t 73,0,1,"User_73"
+@t 74,0,1,"User_74"
+@t 75,0,1,"User_75"
+@t 76,0,1,"User_76"
+@t 77,0,1,"User_77"
+@t 78,0,1,"User_78"
+@t 79,0,1,"User_79"
+@t 80,0,1,"User_80"
+@t 81,0,1,"User_81"
+@t 82,0,1,"User_82"
+@t 83,0,1,"User_83"
+@t 84,0,1,"User_84"
+@t 85,0,1,"User_85"
+@t 86,0,1,"User_86"
+@t 87,0,1,"User_87"
+@t 88,0,1,"User_88"
+@t 89,0,1,"Oleniuc, Apetrii, Panaite"
+@t 90,0,1,"Brasoveanu, Mihaescu, Popescu"
+@t 91,0,1,"Arhire, Nechita, Razvan"
+@t 92,0,1,"Buzatu, Ilie, Popa"
+@t 93,0,1,"Enache, Anghelina, Buta"
+@t 94,0,1,"Buca, Ciobanu, Petrovici"
+@t 95,0,1,"Solnyshkin, Kurin, Goncharov"
+@t 96,0,1,"Pasca, Grigorut, Barbulescu"
+@t 97,0,1,"Popovici, Ariciu, Popescu"
+@t 98,0,1,"Apostol, Bogdan, Popescu"
+@t 99,0,1,"Gasan, Barbu, Chipuc"
+@t 100,0,1,"Dimitriu, Gheorghe, Oprea"
+@t 101,0,1,"Dicu, Linca, Seritan"
+@t 102,0,1,"Popoveniuc, Neagu, Rata"
+@t 103,0,1,"Teodorescu, Chiriac, Dumitrescu"
+@t 104,0,1,"Gavrilas, Cociorvă, Hudisteanu"
+@t 105,0,1,"Iojă, Ciobanu, Nejneriu"
+@t 106,0,1,"Petrov, Chanev, Bogdanov"
+@t 107,0,1,"Preda, Jachean, Patroi"
+@t 108,0,1,"Smacinih, Romanenco, Cernîșov"
+@t 109,0,1,"Rotari, Drumea, Chislari"
+@s 1,,OK,603,OK
+@s 2,,OK,605,OK
+@s 3,,WA,605,OK
+@s 4,,OK,605,OK
+@s 3,,OK,606,OK
+@s 5,,OK,606,OK
+@s 6,,OK,606,OK
+@s 7,,OK,606,OK
+@s 8,,WA,607,OK
+@s 9,,OK,607,OK
+@s 10,,OK,607,OK
+@s 1,,OK,608,OK
+@s 2,,OK,608,OK
+@s 2,,OK,608,OK
+@s 11,,WA,608,OK
+@s 12,,OK,608,OK
+@s 11,,OK,609,OK
+@s 4,,OK,609,OK
+@s 13,,OK,609,OK
+@s 14,,OK,609,OK
+@s 15,,OK,609,OK
+@s 5,,RJ,610,OK
+@s 16,,WA,610,OK
+@s 5,,OK,610,OK
+@s 17,,WA,610,OK
+@s 8,,OK,611,OK
+@s 12,,OK,611,OK
+@s 18,,OK,611,OK
+@s 19,,WA,612,OK
+@s 20,,WA,612,OK
+@s 17,,OK,612,OK
+@s 16,,WA,612,OK
+@s 11,,OK,612,OK
+@s 21,,OK,612,OK
+@s 22,,OK,612,OK
+@s 23,,WA,612,OK
+@s 24,,WA,613,OK
+@s 14,,OK,613,OK
+@s 15,,OK,613,OK
+@s 24,,WA,613,OK
+@s 25,,WA,613,OK
+@s 23,,OK,614,OK
+@s 3,,OK,614,OK
+@s 26,,OK,614,OK
+@s 27,,OK,614,OK
+@s 28,,OK,615,OK
+@s 29,,OK,615,OK
+@s 1,,OK,615,OK
+@s 16,,OK,615,OK
+@s 20,,WA,616,OK
+@s 30,,OK,617,OK
+@s 5,,WA,617,OK
+@s 22,,OK,617,OK
+@s 25,,OK,617,OK
+@s 10,,OK,617,OK
+@s 31,,WA,617,OK
+@s 32,,WA,618,OK
+@s 33,,OK,618,OK
+@s 34,,WA,618,OK
+@s 9,,OK,619,OK
+@s 16,,OK,619,OK
+@s 31,,WA,619,OK
+@s 35,,OK,619,OK
+@s 31,,OK,619,OK
+@s 36,,WA,620,OK
+@s 19,,OK,620,OK
+@s 1,,OK,620,OK
+@s 29,,OK,621,OK
+@s 24,,WA,622,OK
+@s 19,,OK,622,OK
+@s 34,,OK,622,OK
+@s 34,,OK,622,OK
+@s 27,,OK,622,OK
+@s 20,,WA,623,OK
+@s 2,	,WA,623,OK
+@s 30,,OK,623,OK
+@s 26,,OK,623,OK
+@s 2,	,WA,623,OK
+@s 37,,RJ,624,OK
+@s 20,,WA,624,OK
+@s 29,,OK,625,OK
+@s 31,,WA,625,OK
+@s 17,,OK,625,OK
+@s 31,,WA,625,OK
+@s 38,,RJ,625,OK
+@s 39,	,OK,625,OK
+@s 2,	,RT,626,OK
+@s 40,,OK,626,OK
+@s 25,,OK,626,OK
+@s 41,,RJ,626,OK
+@s 37,,RJ,626,OK
+@s 3,,OK,626,OK
+@s 20,,OK,626,OK
+@s 42,,WA,626,OK
+@s 13,,RT,627,OK
+@s 25,,WA,627,OK
+@s 3,,OK,627,OK
+@s 21,,OK,627,OK
+@s 2,	,WA,628,OK
+@s 13,,OK,628,OK
+@s 24,,WA,628,OK
+@s 31,,WA,628,OK
+@s 43,,WA,628,OK
+@s 44,,WA,628,OK
+@s 38,,WA,628,OK
+@s 45,,OK,629,OK
+@s 46,,OK,629,OK
+@s 23,,OK,629,OK
+@s 47,,OK,629,OK
+@s 43,,WA,629,OK
+@s 16,,OK,630,OK
+@s 37,,WA,630,OK
+@s 5,,OK,630,OK
+@s 48,,OK,630,OK
+@s 41,,RJ,630,OK
+@s 6,,OK,630,OK
+@s 49,,WA,631,OK
+@s 34,,WA,631,OK
+@s 44,,WA,631,OK
+@s 1,,WA,631,OK
+@s 36,,OK,631,OK
+@s 50,,WA,632,OK
+@s 34,,WA,632,OK
+@s 38,,WA,632,OK
+@s 24,,WA,632,OK
+@s 51,,WA,633,OK
+@s 35,,WA,633,OK
+@s 15,,OK,633,OK
+@s 42,,WA,633,OK
+@s 26,,RJ,633,OK
+@s 51,,OK,633,OK
+@s 26,,RJ,633,OK
+@s 8,,OK,633,OK
+@s 7,,WA,633,OK
+@s 28,,WA,634,OK
+@s 6,,WA,634,OK
+@s 29,,OK,634,OK
+@s 1,,OK,634,OK
+@s 16,,OK,634,OK
+@s 27,,WA,634,OK
+@s 2,,OK,634,OK
+@s 44,,OK,634,OK
+@s 31,,RJ,634,OK
+@s 35,,WA,635,OK
+@s 27,,OK,635,OK
+@s 46,,OK,636,OK
+@s 52,,WA,636,OK
+@s 35,,OK,636,OK
+@s 16,,OK,636,OK
+@s 31,,OK,636,OK
+@s 6,,OK,636,OK
+@s 28,,OK,637,OK
+@s 43,,WA,638,OK
+@s 52,,OK,638,OK
+@s 10,,OK,639,OK
+@s 53,,RJ,639,OK
+@s 54,,WA,639,OK
+@s 50,,OK,639,OK
+@s 7,,OK,639,OK
+@s 5,,OK,640,OK
+@s 55,,OK,640,OK
+@s 4,,OK,640,OK
+@s 2,	,OK,640,OK
+@s 54,,RJ,640,OK
+@s 37,,WA,640,OK
+@s 54,,WA,640,OK
+@s 53,,RJ,641,OK
+@s 21,,WA,641,OK
+@s 53,,RJ,641,OK
+@s 1,	,WA,641,OK
+@s 41,,RJ,642,OK
+@s 38,,RJ,643,OK
+@s 2,,WA,643,OK
+@s 2,,OK,643,OK
+@s 54,,OK,643,OK
+@s 56,,WA,643,OK
+@s 29,,OK,643,OK
+@s 57,,RJ,643,OK
+@s 32,,RJ,644,OK
+@s 5,,WA,644,OK
+@s 58,,OK,644,OK
+@s 3,,OK,644,OK
+@s 10,,WA,645,OK
+@s 6,,OK,645,OK
+@s 1,	,WA,645,OK
+@s 38,,WA,645,OK
+@s 10,,OK,647,OK
+@s 43,,OK,647,OK
+@s 37,,RJ,647,OK
+@s 59,,OK,647,OK
+@s 55,,OK,647,OK
+@s 22,,OK,647,OK
+@s 36,,RT,648,OK
+@s 52,,WA,648,OK
+@s 37,,RJ,648,OK
+@s 36,,OK,648,OK
+@s 51,,OK,649,OK
+@s 56,,WA,649,OK
+@s 60,,OK,649,OK
+@s 15,,OK,650,OK
+@s 53,,WA,650,OK
+@s 48,,WA,650,OK
+@s 24,,OK,650,OK
+@s 61,,WA,650,OK
+@s 19,,OK,651,OK
+@s 48,,RJ,651,OK
+@s 4,,WA,651,OK
+@s 62,,OK,651,OK
+@s 16,	,WA,651,OK
+@s 32,,OK,651,OK
+@s 9,,WA,652,OK
+@s 63,,WA,652,OK
+@s 18,,WA,652,OK
+@s 47,,RJ,652,OK
+@s 24,,WA,652,OK
+@s 2,,OK,653,OK
+@s 41,,WA,654,OK
+@s 22,,OK,654,OK
+@s 60,,OK,654,OK
+@s 16,	,WA,654,OK
+@s 64,,WA,654,OK
+@s 28,,WA,654,OK
+@s 64,,WA,655,OK
+@s 64,,WA,655,OK
+@s 16,,WA,655,OK
+@s 37,,OK,655,OK
+@s 34,,WA,655,OK
+@s 16,,RT,655,OK
+@s 11,	,WA,655,OK
+@s 64,,WA,655,OK
+@s 6,,WA,655,OK
+@s 64,,WA,655,OK
+@s 24,,OK,655,OK
+@s 48,,WA,656,OK
+@s 34,,OK,656,OK
+@s 28,,OK,656,OK
+@s 11,	,WA,656,OK
+@s 7,,WA,657,OK
+@s 64,,WA,657,OK
+@s 65,,RT,658,OK
+@s 38,,OK,658,OK
+@s 18,,RT,658,OK
+@s 54,,RJ,658,OK
+@s 19,,OK,658,OK
+@s 14,,OK,658,OK
+@s 9,,WA,659,OK
+@s 54,,WA,659,OK
+@s 16,	,OK,659,OK
+@s 54,,WA,660,OK
+@s 66,,RJ,660,OK
+@s 48,,WA,660,OK
+@s 6,,RJ,661,OK
+@s 15,,OK,661,OK
+@s 64,,RJ,661,OK
+@s 47,,WA,661,OK
+@s 64,,RJ,661,OK
+@s 35,,OK,661,OK
+@s 18,,WA,661,OK
+@s 64,,RJ,661,OK
+@s 64,,RJ,661,OK
+@s 46,,OK,661,OK
+@s 18,,WA,662,OK
+@s 56,,OK,662,OK
+@s 65,,RT,662,OK
+@s 64,,RJ,663,OK
+@s 7,,WA,663,OK
+@s 6,,WA,663,OK
+@s 4,,OK,663,OK
+@s 64,,WA,663,OK
+@s 64,,WA,664,OK
+@s 37,,WA,664,OK
+@s 6,,OK,664,OK
+@s 34,,OK,665,OK
+@s 67,,WA,665,OK
+@s 53,,OK,665,OK
+@s 3,	,WA,665,OK
+@s 1,	,OK,665,OK
+@s 27,,RJ,666,OK
+@s 50,,WA,666,OK
+@s 48,,RT,666,OK
+@s 8,,OK,666,OK
+@s 68,
+,RT,666,OK
+@s 65,,RT,666,OK
+@s 27,,RJ,666,OK
+@s 66,,OK,667,OK
+@s 56,,WA,667,OK
+@s 27,,RJ,667,OK
+@s 48,,RT,668,OK
+@s 7,,WA,668,OK
+@s 4,,WA,668,OK
+@s 41,,OK,669,OK
+@s 67,,WA,669,OK
+@s 27,,RJ,669,OK
+@s 18,,WA,670,OK
+@s 65,,OK,670,OK
+@s 20,,OK,670,OK
+@s 60,,OK,671,OK
+@s 69,,WA,672,OK
+@s 11,	,WA,673,OK
+@s 7,,OK,673,OK
+@s 70,,WA,673,OK
+@s 59,,RJ,673,OK
+@s 34,,WA,674,OK
+@s 37,,WA,674,OK
+@s 50,,OK,675,OK
+@s 71,,OK,675,OK
+@s 72,,OK,675,OK
+@s 58,,RJ,675,OK
+@s 70,,RJ,676,OK
+@s 46,,OK,676,OK
+@s 16,,OK,676,OK
+@s 58,,RT,677,OK
+@s 34,,OK,677,OK
+@s 61,,WA,677,OK
+@s 9,,OK,678,OK
+@s 63,,WA,678,OK
+@s 58,,OK,678,OK
+@s 7,,RJ,678,OK
+@s 3,
+,OK,679,OK
+@s 63,,OK,679,OK
+@s 25,,OK,679,OK
+@s 52,,OK,679,OK
+@s 56,,OK,679,OK
+@s 73,,OK,679,OK
+@s 26,,WA,680,OK
+@s 37,,OK,680,OK
+@s 13,,WA,680,OK
+@s 56,,WA,680,OK
+@s 61,,OK,680,OK
+@s 3,	,OK,680,OK
+@s 59,,WA,680,OK
+@s 26,,WA,680,OK
+@s 65,,WA,681,OK
+@s 21,,OK,681,OK
+@s 74,,OK,681,OK
+@s 70,,OK,682,OK
+@s 32,
+,RT,682,OK
+@s 14,,OK,682,OK
+@s 13,,OK,682,OK
+@s 13,,OK,683,OK
+@s 56,,WA,683,OK
+@s 56,,WA,683,OK
+@s 32,
+,WA,684,OK
+@s 48,,OK,684,OK
+@s 68,,WA,684,OK
+@s 22,,OK,685,OK
+@s 73,,WA,685,OK
+@s 4,	,WA,685,OK
+@s 17,,OK,686,OK
+@s 65,,WA,686,OK
+@s 47,,WA,686,OK
+@s 18,,WA,687,OK
+@s 5,	,RJ,687,OK
+@s 75,,RJ,687,OK
+@s 73,,OK,687,OK
+@s 68,,WA,687,OK
+@s 4,	,WA,688,OK
+@s 11,	,WA,688,OK
+@s 36,,OK,688,OK
+@s 51,,OK,689,OK
+@s 31,,WA,689,OK
+@s 68,,WA,689,OK
+@s 43,,OK,689,OK
+@s 67,,WA,690,OK
+@s 42,,WA,691,OK
+@s 55,,WA,691,OK
+@s 5,,OK,691,OK
+@s 50,,OK,691,OK
+@s 57,,OK,692,OK
+@s 59,,RT,692,OK
+@s 53,,OK,692,OK
+@s 4,	,RT,692,OK
+@s 73,,WA,692,OK
+@s 4,	,RT,693,OK
+@s 5,	,OK,693,OK
+@s 73,,OK,693,OK
+@s 67,,RJ,694,OK
+@s 45,,WA,694,OK
+@s 67,,WA,695,OK
+@s 45,,RJ,695,OK
+@s 56,,RJ,695,OK
+@s 45,,WA,695,OK
+@s 45,,RJ,696,OK
+@s 4,	,OK,696,OK
+@s 18,,WA,696,OK
+@s 11,	,WA,696,OK
+@s 42,,WA,697,OK
+@s 68,,WA,697,OK
+@s 2,
+,WA,697,OK
+@s 50,,WA,697,OK
+@s 27,,OK,697,OK
+@s 59,,RT,698,OK
+@s 68,,WA,698,OK
+@s 7,,WA,698,OK
+@s 50,,OK,698,OK
+@s 11,	,WA,698,OK
+@s 2,
+,WA,698,OK
+@s 4,,WA,698,OK
+@s 75,,RJ,698,OK
+@s 28,,OK,699,OK
+@s 40,
+,RJ,699,OK
+@s 7,,RJ,700,OK
+@s 31,,OK,700,OK
+@s 60,,OK,700,OK
+@s 19,	,WA,700,OK
+@s 75,,WA,702,OK
+@s 9,,OK,702,OK
+@s 52,,WA,702,OK
+@s 75,,WA,703,OK
+@s 72,,WA,703,OK
+@s 26,,WA,703,OK
+@s 19,	,WA,704,OK
+@s 26,,OK,705,OK
+@s 42,,WA,705,OK
+@s 75,,WA,705,OK
+@s 47,,RJ,706,OK
+@s 48,,WA,706,OK
+@s 72,,WA,706,OK
+@s 63,,WA,706,OK
+@s 76,,WA,707,OK
+@s 76,,WA,707,OK
+@s 76,,WA,707,OK
+@s 27,,WA,708,OK
+@s 52,
+,WA,708,OK
+@s 25,	,WA,708,OK
+@s 48,,WA,708,OK
+@s 76,,RT,708,OK
+@s 11,	,WA,708,OK
+@s 29,	,WA,708,OK
+@s 76,,RT,708,OK
+@s 63,,WA,709,OK
+@s 63,,OK,709,OK
+@s 47,,WA,710,OK
+@s 25,	,WA,710,OK
+@s 18,,WA,710,OK
+@s 58,,RJ,710,OK
+@s 66,,WA,710,OK
+@s 1,,OK,710,OK
+@s 73,,OK,710,OK
+@s 42,,OK,711,OK
+@s 60,,RT,711,OK
+@s 3,,RJ,712,OK
+@s 60,,OK,712,OK
+@s 3,,OK,712,OK
+@s 68,,WA,713,OK
+@s 19,
+,WA,713,OK
+@s 68,,WA,713,OK
+@s 66,,WA,713,OK
+@s 45,,WA,713,OK
+@s 44,,RT,714,OK
+@s 77,,WA,714,OK
+@s 77,,WA,714,OK
+@s 66,,RJ,714,OK
+@s 77,,WA,714,OK
+@s 68,,WA,715,OK
+@s 29,	,WA,715,OK
+@s 40,,WA,715,OK
+@s 55,,WA,716,OK
+@s 25,,WA,716,OK
+@s 69,,OK,716,OK
+@s 25,	,WA,717,OK
+@s 56,,WA,717,OK
+@s 21,,OK,717,OK
+@s 78,,WA,717,OK
+@s 78,,WA,717,OK
+@s 29,	,OK,718,OK
+@s 63,,WA,718,OK
+@s 25,,RJ,719,OK
+@s 57,,RJ,719,OK
+@s 19,	,WA,719,OK
+@s 15,,RJ,719,OK
+@s 57,,WA,719,OK
+@s 25,,RJ,720,OK
+@s 72,,RJ,720,OK
+@s 25,,RJ,720,OK
+@s 18,,OK,720,OK
+@s 56,,WA,720,OK
+@s 66,,WA,721,OK
+@s 57,,RJ,721,OK
+@s 25,,RJ,721,OK
+@s 68,,WA,722,OK
+@s 25,,WA,722,OK
+@s 13,,WA,722,OK
+@s 19,	,WA,722,OK
+@s 48,,OK,722,OK
+@s 15,,RJ,722,OK
+@s 49,,RJ,723,OK
+@s 13,,WA,723,OK
+@s 66,,WA,723,OK
+@s 1,,WA,723,OK
+@s 4,,WA,723,OK
+@s 79,,WA,724,OK
+@s 1,,WA,724,OK
+@s 75,,WA,724,OK
+@s 79,,OK,724,OK
+@s 75,,WA,725,OK
+@s 38,,RJ,725,OK
+@s 20,,WA,725,OK
+@s 47,,OK,725,OK
+@s 1,,RT,726,OK
+@s 1,,RJ,726,OK
+@s 9,,RJ,727,OK
+@s 42,,RT,727,OK
+@s 40,,OK,727,OK
+@s 25,	,WA,727,OK
+@s 32,,RJ,727,OK
+@s 52,
+,WA,728,OK
+@s 4,,OK,728,OK
+@s 23,,OK,728,OK
+@s 6,	,OK,728,OK
+@s 11,,OK,728,OK
+@s 48,,WA,728,OK
+@s 52,
+,RJ,729,OK
+@s 13,,WA,729,OK
+@s 75,,WA,730,OK
+@s 32,,RJ,730,OK
+@s 75,,WA,730,OK
+@s 32,,RJ,730,OK
+@s 55,,OK,730,OK
+@s 22,	,OK,731,OK
+@s 25,	,OK,731,OK
+@s 69,,OK,732,OK
+@s 42,,RT,732,OK
+@s 9,,RJ,732,OK
+@s 57,,RJ,732,OK
+@s 1,,RJ,733,OK
+@s 19,	,RJ,733,OK
+@s 24,,RJ,733,OK
+@s 70,,RT,733,OK
+@s 68,,WA,733,OK
+@s 11,,OK,734,OK
+@s 1,,RJ,734,OK
+@s 3,,WA,735,OK
+@s 74,,WA,735,OK
+@s 56,,WA,735,OK
+@s 32,,WA,735,OK
+@s 74,,WA,735,OK
+@s 32,,WA,736,OK
+@s 33,,WA,736,OK
+@s 70,,WA,736,OK
+@s 19,,WA,737,OK
+@s 33,,RJ,737,OK
+@s 42,,RT,737,OK
+@s 26,,WA,738,OK
+@s 32,,RT,738,OK
+@s 74,,OK,738,OK
+@s 38,,WA,739,OK
+@s 15,,OK,739,OK
+@s 20,,WA,740,OK
+@s 32,,WA,740,OK
+@s 38,,WA,740,OK
+@s 32,,OK,741,OK
+@s 19,	,OK,741,OK
+@s 19,,WA,741,OK
+@s 9,,WA,742,OK
+@s 42,,RT,742,OK
+@s 72,	,WA,742,OK
+@s 70,,WA,742,OK
+@s 40,
+,WA,742,OK
+@s 32,,RJ,743,OK
+@s 70,,RT,743,OK
+@s 3,,WA,743,OK
+@s 77,,WA,743,OK
+@s 29,,OK,743,OK
+@s 77,,WA,743,OK
+@s 5,,WA,744,OK
+@s 17,,WA,744,OK
+@s 37,,RJ,744,OK
+@s 38,,RJ,744,OK
+@s 69,,WA,744,OK
+@s 46,,WA,745,OK
+@s 20,,WA,745,OK
+@s 46,,WA,745,OK
+@s 61,,WA,745,OK
+@s 17,,WA,745,OK
+@s 2,
+,WA,746,OK
+@s 72,,WA,746,OK
+@s 8,,WA,746,OK
+@s 46,,WA,746,OK
+@s 77,,RJ,746,OK
+@s 7,,WA,747,OK
+@s 17,,WA,747,OK
+@s 42,,WA,747,OK
+@s 11,,WA,748,OK
+@s 37,,RT,748,OK
+@s 42,,RT,748,OK
+@s 71,,OK,748,OK
+@s 32,,RT,748,OK
+@s 37,,RJ,748,OK
+@s 53,,RJ,748,OK
+@s 66,,RJ,749,OK
+@s 52,
+,WA,749,OK
+@s 19,,WA,749,OK
+@s 42,,OK,749,OK
+@s 19,,WA,750,OK
+@s 48,,RJ,750,OK
+@s 57,,RJ,750,OK
+@s 79,,OK,750,OK
+@s 48,,WA,750,OK
+@s 35,,OK,750,OK
+@s 37,,RJ,750,OK
+@s 7,,OK,750,OK
+@s 56,,WA,751,OK
+@s 56,,RJ,751,OK
+@s 46,,WA,751,OK
+@s 56,,OK,751,OK
+@s 9,,WA,752,OK
+@s 16,,WA,752,OK
+@s 69,,OK,752,OK
+@s 37,,RJ,753,OK
+@s 16,,RJ,753,OK
+@s 17,,WA,754,OK
+@s 34,	,WA,754,OK
+@s 19,,WA,754,OK
+@s 11,,OK,754,OK
+@s 32,,RT,755,OK
+@s 74,,WA,755,OK
+@s 61,,OK,756,OK
+@s 72,,OK,756,OK
+@s 66,,OK,756,OK
+@s 74,,OK,756,OK
+@s 65,
+,WA,756,OK
+@s 19,,WA,757,OK
+@s 65,
+,WA,757,OK
+@s 16,,RJ,757,OK
+@s 17,,WA,757,OK
+@s 70,,WA,758,OK
+@s 46,,RJ,758,OK
+@s 46,,WA,758,OK
+@s 1,
+,WA,759,OK
+@s 17,,WA,759,OK
+@s 16,,RJ,759,OK
+@s 33,,RJ,759,OK
+@s 1,
+,WA,759,OK
+@s 21,,OK,759,OK
+@s 37,,RJ,760,OK
+@s 75,,WA,761,OK
+@s 52,,OK,761,OK
+@s 70,,RJ,762,OK
+@s 70,,WA,762,OK
+@s 37,,RJ,762,OK
+@s 70,,WA,763,OK
+@s 44,,RT,763,OK
+@s 33,,WA,763,OK
+@s 38,,RT,764,OK
+@s 37,,RJ,765,OK
+@s 34,	,WA,765,OK
+@s 35,,OK,765,OK
+@s 37,,RJ,765,OK
+@s 79,,OK,765,OK
+@s 33,,OK,766,OK
+@s 14,,RJ,766,OK
+@s 68,	,WA,767,OK
+@s 1,,OK,767,OK
+@s 49,	,WA,768,OK
+@s 37,,OK,769,OK
+@s 33,,OK,770,OK
+@s 69,,RJ,771,OK
+@s 14,,WA,771,OK
+@s 17,,WA,773,OK
+@s 80,,RJ,774,OK
+@s 34,	,WA,774,OK
+@s 80,,WA,775,OK
+@s 14,,RJ,775,OK
+@s 40,,WA,775,OK
+@s 49,,RJ,776,OK
+@s 14,,RJ,776,OK
+@s 2,,OK,776,OK
+@s 4,,OK,777,OK
+@s 46,,WA,777,OK
+@s 14,,RT,777,OK
+@s 27,,RJ,777,OK
+@s 34,	,OK,777,OK
+@s 8,,WA,780,OK
+@s 14,,RT,780,OK
+@s 75,,RT,782,OK
+@s 75,,RT,783,OK
+@s 52,
+,WA,783,OK
+@s 60,	,WA,783,OK
+@s 8,,RJ,784,OK
+@s 75,,RT,784,OK
+@s 19,,OK,784,OK
+@s 75,,RT,784,OK
+@s 48,,RJ,784,OK
+@s 8,,WA,785,OK
+@s 75,,WA,785,OK
+@s 38,,RJ,785,OK
+@s 17,,WA,785,OK
+@s 40,,WA,785,OK
+@s 27,,RJ,786,OK
+@s 27,,RJ,786,OK
+@s 81,,RJ,786,OK
+@s 52,
+,WA,786,OK
+@s 69,,RJ,786,OK
+@s 11,	,OK,787,OK
+@s 18,,WA,787,OK
+@s 16,,RJ,787,OK
+@s 8,,WA,787,OK
+@s 38,,RJ,787,OK
+@s 65,
+,WA,788,OK
+@s 65,
+,WA,788,OK
+@s 31,,RJ,789,OK
+@s 31,,RJ,790,OK
+@s 41,,OK,790,OK
+@s 15,	,WA,790,OK
+@s 31,,RJ,790,OK
+@s 14,,RJ,791,OK
+@s 70,,WA,791,OK
+@s 53,,WA,792,OK
+@s 2,
+,WA,792,OK
+@s 17,,WA,793,OK
+@s 60,	,WA,794,OK
+@s 15,	,WA,794,OK
+@s 66,	,RJ,795,OK
+@s 38,,RJ,795,OK
+@s 31,,OK,796,OK
+@s 6,,WA,797,OK
+@s 48,,OK,797,OK
+@s 34,,WA,798,OK
+@s 38,,WA,799,OK
+@s 66,,RJ,799,OK
+@s 65,,WA,799,OK
+@s 1,
+,OK,799,OK
+@s 16,,RT,799,OK
+@s 44,,WA,799,OK
+@s 34,,WA,799,OK
+@s 16,,RJ,800,OK
+@s 65,,WA,800,OK
+@s 38,,OK,800,OK
+@s 81,,RJ,800,OK
+@s 17,,WA,800,OK
+@s 70,,RT,801,OK
+@s 29,
+,WA,801,OK
+@s 60,	,OK,801,OK
+@s 57,,WA,801,OK
+@s 22,,WA,802,OK
+@s 55,,WA,802,OK
+@s 82,,OK,802,OK
+@s 53,,WA,803,OK
+@s 8,,WA,803,OK
+@s 18,,WA,803,OK
+@s 16,,OK,803,OK
+@s 57,,OK,804,OK
+@s 53,,OK,804,OK
+@s 82,,RJ,804,OK
+@s 38,,WA,804,OK
+@s 24,,WA,804,OK
+@s 57,,OK,805,OK
+@s 61,,RJ,805,OK
+@s 82,,WA,805,OK
+@s 33,,WA,805,OK
+@s 34,,OK,806,OK
+@s 8,,WA,807,OK
+@s 5,,WA,807,OK
+@s 21,,OK,807,OK
+@s 8,,WA,808,OK
+@s 23,,RT,809,OK
+@s 48,,RJ,809,OK
+@s 5,,WA,809,OK
+@s 5,,WA,809,OK
+@s 48,,RJ,809,OK
+@s 4,,WA,809,OK
+@s 65,,WA,809,OK
+@s 65,,WA,809,OK
+@s 65,,WA,809,OK
+@s 43,,WA,810,OK
+@s 41,,WA,810,OK
+@s 29,
+,OK,810,OK
+@s 38,,WA,811,OK
+@s 4,,RJ,811,OK
+@s 25,,OK,811,OK
+@s 65,,RJ,812,OK
+@s 38,,WA,812,OK
+@s 65,,WA,812,OK
+@s 8,,WA,812,OK
+@s 11,,WA,813,OK
+@s 32,,RJ,813,OK
+@s 82,,OK,813,OK
+@s 5,,OK,813,OK
+@s 43,,WA,813,OK
+@s 38,,WA,813,OK
+@s 70,,RT,813,OK
+@s 19,,RJ,814,OK
+@s 38,,WA,814,OK
+@s 38,,WA,815,OK
+@s 38,,WA,815,OK
+@s 11,,WA,816,OK
+@s 3,,WA,817,OK
+@s 19,,RJ,817,OK
+@s 11,,WA,818,OK
+@s 18,,WA,818,OK
+@s 8,,RJ,819,OK
+@s 38,,WA,819,OK
+@s 38,,WA,820,OK
+@s 23,,RJ,820,OK
+@s 22,,WA,821,OK
+@s 65,,WA,821,OK
+@s 48,,WA,822,OK
+@s 25,,RJ,822,OK
+@s 8,,WA,822,OK
+@s 8,,WA,822,OK
+@s 65,
+,RJ,823,OK
+@s 8,,OK,823,OK
+@s 41,,WA,823,OK
+@s 9,,WA,823,OK
+@s 6,,OK,823,OK
+@s 44,,OK,824,OK
+@s 48,,RJ,824,OK
+@s 4,,WA,824,OK
+@s 57,,RJ,825,OK
+@s 48,,RJ,825,OK
+@s 9,,WA,825,OK
+@s 11,,WA,826,OK
+@s 25,,RJ,826,OK
+@s 4,,RJ,827,OK
+@s 24,,WA,827,OK
+@s 2,
+,WA,828,OK
+@s 4,,RJ,828,OK
+@s 24,,WA,828,OK
+@s 66,,RJ,829,OK
+@s 49,,WA,830,OK
+@s 49,,WA,830,OK
+@s 22,,WA,830,OK
+@s 9,,RJ,831,OK
+@s 70,,WA,831,OK
+@s 5,,RJ,832,OK
+@s 49,,WA,832,OK
+@s 9,,WA,834,OK
+@s 38,,RJ,834,OK
+@s 9,,RJ,835,OK
+@s 83,,WA,835,OK
+@s 70,,RT,837,OK
+@s 34,
+,WA,837,OK
+@s 9,,WA,838,OK
+@s 75,
+,RJ,838,OK
+@s 31,,WA,838,OK
+@s 38,,OK,838,OK
+@s 5,,RJ,839,OK
+@s 21,,RJ,839,OK
+@s 84,,RJ,839,OK
+@s 21,,RJ,839,OK
+@s 85,,WA,840,OK
+@s 49,,OK,841,OK
+@s 5,,OK,841,OK
+@s 65,
+,WA,842,OK
+@s 86,,OK,842,OK
+@s 85,
+,WA,842,OK
+@s 65,
+,WA,843,OK
+@s 9,,WA,845,OK
+@s 84,,RJ,845,OK
+@s 38,,RJ,846,OK
+@s 46,,OK,847,OK
+@s 38,,WA,847,OK
+@s 9,	,WA,848,OK
+@s 85,,OK,848,OK
+@s 82,,WA,849,OK
+@s 22,,RJ,849,OK
+@s 9,,RJ,850,OK
+@s 19,,OK,850,OK
+@s 85,,WA,850,OK
+@s 26,,OK,851,OK
+@s 17,,RJ,851,OK
+@s 85,,WA,852,OK
+@s 85,,RJ,852,OK
+@s 32,,WA,852,OK
+@s 85,,RJ,853,OK
+@s 85,,RJ,853,OK
+@s 65,,WA,853,OK
+@s 22,,WA,853,OK
+@s 85,,RJ,854,OK
+@s 1,,OK,855,OK
+@s 65,,WA,855,OK
+@s 9,	,WA,855,OK
+@s 85,,WA,855,OK
+@s 14,,RJ,855,OK
+@s 14,,WA,855,OK
+@s 28,,RT,856,OK
+@s 85,,RT,856,OK
+@s 70,,OK,856,OK
+@s 14,,RJ,857,OK
+@s 65,,WA,857,OK
+@s 65,,WA,858,OK
+@s 43,,WA,859,OK
+@s 65,,WA,860,OK
+@s 17,,OK,860,OK
+@s 4,,RJ,860,OK
+@s 9,	,WA,860,OK
+@s 8,,WA,861,OK
+@s 71,,WA,862,OK
+@s 4,,RJ,862,OK
+@s 74,,OK,864,OK
+@s 9,,RJ,864,OK
+@s 22,,WA,864,OK
+@s 9,,WA,864,OK
+@s 85,,RT,865,OK
+@s 40,
+,WA,865,OK
+@s 1,,WA,865,OK
+@s 1,,RJ,866,OK
+@s 85,,WA,866,OK
+@s 4,,RJ,867,OK
+@s 21,	,WA,867,OK
+@s 23,,WA,868,OK
+@s 82,,WA,868,OK
+@s 23,,WA,868,OK
+@s 26,,WA,868,OK
+@s 1,,RJ,869,OK
+@s 8,,WA,869,OK
+@s 9,,WA,869,OK
+@s 9,	,OK,869,OK
+@s 69,,RJ,869,OK
+@s 85,,WA,869,OK
+@s 48,,WA,869,OK
+@s 57,	,WA,870,OK
+@s 48,,WA,870,OK
+@s 28,,OK,870,OK
+@s 86,,WA,870,OK
+@s 69,,RJ,871,OK
+@s 3,,RJ,871,OK
+@s 23,,RJ,871,OK
+@s 85,,RT,871,OK
+@s 55,,RJ,872,OK
+@s 24,,OK,872,OK
+@s 4,,WA,872,OK
+@s 40,,OK,872,OK
+@s 42,,WA,872,OK
+@s 21,,RJ,872,OK
+@s 22,,RJ,872,OK
+@s 4,,WA,873,OK
+@s 3,,RJ,873,OK
+@s 55,,RJ,874,OK
+@s 86,,WA,874,OK
+@s 8,
+,RJ,874,OK
+@s 4,,WA,874,OK
+@s 25,,OK,874,OK
+@s 5,
+,WA,875,OK
+@s 31,,OK,876,OK
+@s 5,
+,WA,876,OK
+@s 3,,RJ,876,OK
+@s 65,
+,RJ,876,OK
+@s 22,,WA,877,OK
+@s 6,
+,WA,877,OK
+@s 61,,RJ,877,OK
+@s 1,
+,WA,878,OK
+@s 4,,WA,878,OK
+@s 18,,WA,878,OK
+@s 50,,OK,879,OK
+@s 15,	,WA,879,OK
+@s 22,,RJ,880,OK
+@s 18,,WA,881,OK
+@s 4,,WA,881,OK
+@s 18,,WA,881,OK
+@s 42,,OK,881,OK
+@s 18,,WA,881,OK
+@s 86,,WA,881,OK
+@s 86,,WA,881,OK
+@s 18,,WA,882,OK
+@s 56,,RJ,882,OK
+@s 6,,RJ,882,OK
+@s 3,,RJ,882,OK
+@s 9,,WA,883,OK
+@s 56,,RJ,883,OK
+@s 22,,WA,884,OK
+@s 3,,RJ,884,OK
+@s 65,,OK,884,OK
+@s 31,,WA,884,OK
+@s 4,,WA,884,OK
+@s 23,,RT,885,OK
+@s 6,,RJ,885,OK
+@s 21,	,WA,885,OK
+@s 40,
+,RJ,885,OK
+@s 82,,WA,886,OK
+@s 86,,WA,886,OK
+@s 49,,RJ,886,OK
+@s 22,,WA,887,OK
+@s 4,,RJ,887,OK
+@s 50,,OK,887,OK
+@s 31,,WA,887,OK
+@s 1,
+,WA,887,OK
+@s 7,,WA,887,OK
+@s 22,,WA,888,OK
+@s 65,
+,RJ,888,OK
+@s 3,,WA,888,OK
+@s 4,,RJ,889,OK
+@s 1,,OK,889,OK
+@s 9,,WA,889,OK
+@s 3,,WA,890,OK
+@s 57,,OK,890,OK
+@s 82,,OK,891,OK
+@s 9,,WA,891,OK
+@s 25,,RJ,891,OK
+@s 9,,WA,891,OK
+@s 11,,OK,892,OK
+@s 8,,WA,892,OK
+@s 26,,WA,892,OK
+@s 72,,WA,892,OK
+@s 4,,WA,892,OK
+@s 3,,RT,892,OK
+@s 3,,WA,893,OK
+@s 4,,WA,893,OK
+@s 4,,RJ,893,OK
+@s 4,,RJ,893,OK
+@s 48,,RJ,893,OK
+@s 38,,RJ,893,OK
+@s 48,,RJ,893,OK
+@s 26,,WA,894,OK
+@s 48,,RJ,894,OK
+@s 34,
+,WA,894,OK
+@s 3,,RJ,894,OK
+@s 22,,OK,894,OK
+@s 70,,WA,894,OK
+@s 38,,RJ,895,OK
+@s 9,,WA,895,OK
+@s 14,,WA,895,OK
+@s 34,
+,WA,896,OK
+@s 3,,RJ,896,OK
+@s 14,,WA,897,OK
+@s 46,	,WA,897,OK
+@s 31,,WA,897,OK
+@s 50,	,WA,898,OK
+@s 26,,WA,898,OK
+@s 65,
+,RJ,898,OK
+@s 8,
+,RJ,898,OK
+@s 44,,RJ,898,OK
+@s 46,	,WA,898,OK
+@s 87,,OK,899,OK
+@s 50,	,WA,899,OK
+@s 60,,WA,899,OK
+@s 87,,OK,899,OK
+@s 26,,RJ,899,OK
+@s 4,,RJ,899,OK
+@s 50,	,WA,899,OK
+@s 87,,OK,899,OK
+@s 88,,RJ,676,OK
+@s 88,,OK,676,OK
+@s 88,,RJ,1213,OK
+@s 88,,WA,1250,OK
+@s 88,,WA,1252,OK
+@s 88,,WA,1254,OK
+@s 88,,WA,1257,OK
+@s 88,,WA,1267,OK
+@s 88,,WA,1269,OK
+@s 88,,OK,1273,OK
+@s 88,,OK,1274,OK
+@s 88,,OK,1277,OK
+@s 88,,WA,1278,OK
+@s 88,,OK,1278,OK
+@s 88,,WA,1280,OK
+@s 88,,OK,1281,OK
+@s 88,,RJ,1283,OK
+@s 88,,RT,1284,OK
+@s 88,,WA,1285,OK
+@s 88,,WA,1285,OK
+@s 88,,OK,1286,OK
+@s 88,,RT,1289,OK
+@s 88,,OK,1290,OK
+@s 88,,WA,1291,OK
+@s 88,,RJ,1292,OK
+@s 88,,RT,1293,OK
+@s 88,,RT,1296,OK
+@s 88,,WA,1297,OK
+@s 88,,OK,1302,OK
+@s 88,,RJ,1302,OK
+@s 88,,OK,1302,OK
+@s 88,,RJ,1302,OK
+@s 88,,RJ,1302,OK
+@s 88,,WA,1302,OK
+@s 88,,WA,1373,OK
+@s 88,,WA,1374,OK
+@s 88,,WA,1376,OK
+@s 88,,OK,1376,OK
+@s 88,,RJ,1383,OK
+@s 88,,OK,1386,OK
+@s 88,,OK,1388,OK
+@s 88,,OK,1389,OK
+@s 88,,OK,1390,OK
+@s 88,,OK,1391,OK
+@s 88,,OK,1392,OK
+@s 88,,OK,1392,OK
+@s 88,,OK,1393,OK
+@s 88,,OK,1395,OK
+@s 88,,OK,1397,OK
+@s 88,,RT,1399,OK
+@s 88,,OK,1399,OK
+@s 88,,OK,1403,OK
+@s 88,,OK,1404,OK
+@s 88,,OK,1406,OK
+@s 88,,OK,1406,OK
+@s 88,,WA,1407,OK
+@s 88,,RT,1407,OK
+@s 88,,WA,1407,OK
+@s 88,,RT,1410,OK
+@s 88,,RT,1414,OK
+@s 88,,RT,1422,OK
+@s 88,,RT,1425,OK
+@s 88,,WA,1426,OK
+@s 88,,WA,1426,OK
+@s 88,,RJ,1426,OK
+@s 88,,RJ,1426,OK
+@s 88,,RJ,1427,OK
+@s 88,,WA,1427,OK
+@s 88,,WA,1427,OK
+@s 88,,RT,1431,OK
+@s 88,,WA,1439,OK
+@s 88,,WA,3,OK
+@s 88,,WA,4,OK
+@s 88,,RJ,8,OK
+@s 88,,RJ,9,OK
+@s 88,,RJ,9,OK
+@s 88,,RJ,9,OK
+@s 88,,RJ,9,OK
+@s 88,,RT,24,OK
+@s 88,,OK,99,OK
+@s 88,,OK,206,OK
+@s 88,,RJ,207,OK
+@s 88,,RJ,208,OK
+@s 88,,RJ,208,OK
+@s 88,,WA,466,OK
+@s 88,,WA,466,OK
+@s 88,,RJ,467,OK
+@s 88,,WA,467,OK
+@s 88,,OK,467,OK
+@s 88,,WA,470,OK
+@s 88,,RJ,476,OK
+@s 88,,RJ,477,OK
+@s 88,,WA,478,OK
+@s 88,,WA,479,OK
+@s 88,,OK,485,OK
+@s 88,,OK,518,OK
+@s 88,,WA,527,OK
+@s 88,,OK,551,OK
+@s 88,,OK,552,OK
+@s 88,,OK,552,OK
+@s 88,,WA,553,OK
+@s 88,,WA,553,OK
+@s 88,,OK,554,OK
+@s 88,,OK,554,OK
+@s 88,,OK,555,OK
+@s 88,,OK,555,OK
+@s 88,,OK,556,OK
+@s 88,,OK,556,OK
+@s 88,,RJ,556,OK
+@s 88,,OK,556,OK
+@s 88,,OK,557,OK
+@s 88,,OK,559,OK
+@s 88,,OK,561,OK
+@s 88,,OK,561,OK
+@s 88,,OK,562,OK
+@s 88,,OK,562,OK
+@s 88,,OK,562,OK
+@s 88,,OK,563,OK
+@s 88,,OK,563,OK
+@s 88,,OK,564,OK
+@s 88,,OK,565,OK
+@s 88,,OK,566,OK
+@s 88,,OK,567,OK
+@s 88,,OK,567,OK
+@s 88,,OK,568,OK
+@s 88,,OK,568,OK
+@s 88,,RJ,569,OK
+@s 88,,OK,569,OK
+@s 88,,OK,569,OK
+@s 88,,OK,570,OK
+@s 88,,OK,571,OK
+@s 88,,OK,573,OK
+@s 88,,RT,574,OK
+@s 88,,OK,574,OK
+@s 88,,OK,575,OK
+@s 88,,RJ,575,OK
+@s 88,,RJ,576,OK
+@s 88,,RJ,577,OK
+@s 88,,OK,586,OK
+@s 88,,RJ,587,OK
+@s 88,,OK,589,OK
+@s 88,,RJ,592,OK
+@s 88,,RJ,593,OK
+@s 89,,WA,602,OK
+@s 90,,WA,603,OK
+@s 89,,WA,603,OK
+@s 91,,OK,603,OK
+@s 92,,OK,603,OK
+@s 93,,OK,604,OK
+@s 94,,OK,604,OK
+@s 90,,OK,604,OK
+@s 95,,WA,604,OK
+@s 96,,WA,604,OK
+@s 97,,OK,605,OK
+@s 98,,OK,605,OK
+@s 99,,OK,606,OK
+@s 100,,WA,606,OK
+@s 96,,OK,606,OK
+@s 91,,WA,606,OK
+@s 89,,OK,606,OK
+@s 100,,OK,607,OK
+@s 101,,OK,607,OK
+@s 91,,OK,607,OK
+@s 97,,OK,607,OK
+@s 95,,OK,607,OK
+@s 90,,OK,607,OK
+@s 93,,WA,608,OK
+@s 102,,WA,608,OK
+@s 92,,WA,608,OK
+@s 99,,OK,608,OK
+@s 102,,OK,608,OK
+@s 98,,OK,609,OK
+@s 101,,OK,609,OK
+@s 89,,OK,609,OK
+@s 100,,OK,609,OK
+@s 103,,OK,610,OK
+@s 92,,OK,610,OK
+@s 104,,OK,610,OK
+@s 105,,OK,611,OK
+@s 101,,OK,612,OK
+@s 97,,OK,612,OK
+@s 103,,OK,613,OK
+@s 95,,OK,614,OK
+@s 98,,OK,614,OK
+@s 104,,OK,615,OK
+@s 97,,OK,615,OK
+@s 106,,OK,615,OK
+@s 101,,OK,616,OK
+@s 96,,OK,616,OK
+@s 89,,OK,617,OK
+@s 99,,WA,617,OK
+@s 95,,OK,617,OK
+@s 101,,OK,618,OK
+@s 103,,OK,618,OK
+@s 107,,WA,618,OK
+@s 94,,OK,618,OK
+@s 105,,OK,618,OK
+@s 93,,OK,619,OK
+@s 108,,OK,619,OK
+@s 107,,WA,619,OK
+@s 102,,OK,620,OK
+@s 93,,OK,621,OK
+@s 93,,OK,623,OK
+@s 98,,OK,623,OK
+@s 94,,WA,623,OK
+@s 95,,OK,624,OK
+@s 97,,OK,624,OK
+@s 94,,WA,624,OK
+@s 94,,OK,625,OK
+@s 99,,OK,626,OK
+@s 99,,OK,627,OK
+@s 104,,WA,627,OK
+@s 108,,OK,630,OK
+@s 92,,WA,631,OK
+@s 103,,OK,631,OK
+@s 98,,OK,631,OK
+@s 107,,OK,631,OK
+@s 90,,OK,633,OK
+@s 102,,OK,633,OK
+@s 89,,OK,634,OK
+@s 106,,WA,634,OK
+@s 91,,OK,636,OK
+@s 102,,OK,636,OK
+@s 93,,OK,636,OK
+@s 91,,OK,637,OK
+@s 92,,OK,638,OK
+@s 106,,OK,639,OK
+@s 105,,OK,639,OK
+@s 107,,OK,640,OK
+@s 100,,OK,640,OK
+@s 104,,OK,640,OK
+@s 102,,WA,640,OK
+@s 95,,OK,641,OK
+@s 91,,OK,641,OK
+@s 98,,OK,642,OK
+@s 92,,WA,642,OK
+@s 97,,WA,643,OK
+@s 96,,OK,643,OK
+@s 92,,OK,644,OK
+@s 99,,OK,645,OK
+@s 102,,OK,646,OK
+@s 103,,OK,647,OK
+@s 102,,OK,647,OK
+@s 92,,OK,649,OK
+@s 89,,OK,650,OK
+@s 105,,OK,651,OK
+@s 95,,WA,651,OK
+@s 103,,OK,652,OK
+@s 106,,OK,653,OK
+@s 97,,OK,653,OK
+@s 90,,WA,653,OK
+@s 94,,OK,653,OK
+@s 95,,WA,656,OK
+@s 104,,WA,656,OK
+@s 94,,OK,660,OK
+@s 100,,OK,665,OK
+@s 95,,OK,666,OK
+@s 96,,WA,666,OK
+@s 103,,WA,667,OK
+@s 104,,OK,667,OK
+@s 90,,WA,667,OK
+@s 108,,WA,668,OK
+@s 90,,OK,668,OK
+@s 103,,WA,670,OK
+@s 92,,OK,671,OK
+@s 109,,WA,671,OK
+@s 108,,WA,672,OK
+@s 103,,WA,672,OK
+@s 108,,RJ,673,OK
+@s 106,,OK,675,OK
+@s 96,,OK,675,OK
+@s 99,,WA,675,OK
+@s 99,,WA,676,OK
+@s 103,,OK,678,OK
+@s 107,,OK,680,OK
+@s 102,,WA,683,OK
+@s 106,,WA,686,OK
+@s 99,,WA,686,OK
+@s 88,,OK,687,OK
+@s 104,,RJ,687,OK
+@s 106,,OK,688,OK
+@s 93,,WA,688,OK
+@s 104,,WA,688,OK
+@s 108,,OK,688,OK
+@s 109,,WA,689,OK
+@s 102,,WA,690,OK
+@s 89,,WA,691,OK
+@s 91,,OK,691,OK
+@s 101,,OK,691,OK
+@s 97,,WA,692,OK
+@s 102,,WA,692,OK
+@s 93,,WA,692,OK
+@s 104,,WA,693,OK
+@s 97,,WA,693,OK
+@s 102,,OK,696,OK
+@s 89,,WA,696,OK
+@s 109,,RT,697,OK
+@s 109,,OK,699,OK
+@s 100,,WA,699,OK
+@s 92,,WA,703,OK
+@s 90,,WA,705,OK
+@s 92,,WA,705,OK
+@s 90,,WA,706,OK
+@s 97,,WA,706,OK
+@s 100,,OK,707,OK
+@s 89,,OK,708,OK
+@s 109,,OK,708,OK
+@s 97,,WA,708,OK
+@s 107,,WA,710,OK
+@s 90,,WA,711,OK
+@s 97,,RJ,711,OK
+@s 107,,WA,712,OK
+@s 99,,RJ,713,OK
+@s 93,,WA,713,OK
+@s 90,,WA,714,OK
+@s 97,,OK,716,OK
+@s 98,,OK,716,OK
+@s 92,,WA,718,OK
+@s 93,,OK,718,OK
+@s 107,,WA,720,OK
+@s 96,,OK,721,OK
+@s 109,,WA,721,OK
+@s 101,,OK,721,OK
+@s 107,,WA,724,OK
+@s 100,,WA,725,OK
+@s 91,,WA,726,OK
+@s 109,,OK,726,OK
+@s 99,,WA,730,OK
+@s 91,,WA,732,OK
+@s 103,,OK,733,OK
+@s 102,,WA,740,OK
+@s 90,,WA,745,OK
+@s 100,,RJ,745,OK
+@s 104,,OK,746,OK
+@s 102,,WA,747,OK
+@s 104,,WA,747,OK
+@s 91,,WA,749,OK
+@s 101,,WA,752,OK
+@s 92,,WA,752,OK
+@s 94,,WA,753,OK
+@s 92,,WA,753,OK
+@s 96,,WA,754,OK
+@s 94,,WA,755,OK
+@s 91,,OK,756,OK
+@s 94,,WA,757,OK
+@s 93,,WA,757,OK
+@s 92,,RT,758,OK
+@s 96,,WA,759,OK
+@s 103,,WA,759,OK
+@s 92,,OK,759,OK
+@s 92,,RJ,760,OK
+@s 100,,WA,760,OK
+@s 102,,RJ,761,OK
+@s 102,,RJ,762,OK
+@s 100,,RT,762,OK
+@s 101,,OK,762,OK
+@s 95,,OK,762,OK
+@s 104,,WA,763,OK
+@s 93,,RJ,763,OK
+@s 94,,WA,764,OK
+@s 93,,RJ,765,OK
+@s 100,,WA,767,OK
+@s 94,,WA,768,OK
+@s 100,,WA,769,OK
+@s 91,,RJ,769,OK
+@s 90,,RJ,769,OK
+@s 95,,WA,769,OK
+@s 95,,OK,770,OK
+@s 90,,OK,770,OK
+@s 100,,WA,772,OK
+@s 93,,OK,772,OK
+@s 104,,WA,774,OK
+@s 96,,WA,775,OK
+@s 94,,OK,775,OK
+@s 100,,OK,776,OK
+@s 104,,WA,778,OK
+@s 91,,WA,778,OK
+@s 94,,WA,778,OK
+@s 92,,RJ,779,OK
+@s 103,,WA,779,OK
+@s 91,,WA,781,OK
+@s 94,,OK,781,OK
+@s 100,,RT,782,OK
+@s 100,,OK,783,OK
+@s 104,,RJ,785,OK
+@s 91,,RJ,786,OK
+@s 101,,RJ,787,OK
+@s 103,,RT,789,OK
+@s 101,,OK,789,OK
+@s 99,,RT,791,OK
+@s 107,,WA,792,OK
+@s 99,,OK,793,OK
+@s 98,,RJ,798,OK
+@s 103,,RJ,799,OK
+@s 103,,RJ,800,OK
+@s 92,,WA,801,OK
+@s 104,,RJ,803,OK
+@s 91,,WA,805,OK
+@s 103,,RJ,806,OK
+@s 99,,WA,806,OK
+@s 91,,WA,807,OK
+@s 103,,RJ,807,OK
+@s 91,,RJ,808,OK
+@s 90,,WA,808,OK
+@s 104,,WA,808,OK
+@s 97,,OK,808,OK
+@s 90,,WA,808,OK
+@s 105,,WA,810,OK
+@s 96,,OK,813,OK
+@s 100,,WA,816,OK
+@s 105,,WA,819,OK
+@s 105,,WA,819,OK
+@s 102,,RJ,821,OK
+@s 104,,RJ,822,OK
+@s 99,,OK,822,OK
+@s 103,,OK,822,OK
+@s 105,,WA,823,OK
+@s 92,,OK,823,OK
+@s 100,,RJ,826,OK
+@s 105,,RJ,826,OK
+@s 89,,OK,828,OK
+@s 105,,OK,831,OK
+@s 90,,RJ,831,OK
+@s 102,,WA,832,OK
+@s 102,,WA,832,OK
+@s 90,,RJ,835,OK
+@s 102,,RJ,839,OK
+@s 104,,OK,841,OK
+@s 102,,RJ,843,OK
+@s 90,,WA,844,OK
+@s 105,,WA,847,OK
+@s 90,,RJ,849,OK
+@s 93,,RJ,850,OK
+@s 106,,RJ,852,OK
+@s 90,,WA,855,OK
+@s 103,,WA,855,OK
+@s 103,,WA,856,OK
+@s 97,,WA,856,OK
+@s 98,,RT,857,OK
+@s 97,,OK,857,OK
+@s 108,,OK,857,OK
+@s 89,,RJ,860,OK
+@s 105,,WA,860,OK
+@s 98,,WA,860,OK
+@s 91,,WA,861,OK
+@s 89,,RJ,862,OK
+@s 98,,WA,862,OK
+@s 100,,RJ,862,OK
+@s 95,,RT,862,OK
+@s 91,,WA,863,OK
+@s 105,,WA,864,OK
+@s 93,,RJ,864,OK
+@s 95,,OK,864,OK
+@s 102,,WA,865,OK
+@s 93,,RT,865,OK
+@s 106,,RJ,866,OK
+@s 97,,RJ,866,OK
+@s 102,,OK,866,OK
+@s 91,,WA,870,OK
+@s 97,,RJ,870,OK
+@s 98,,RJ,871,OK
+@s 106,,RJ,872,OK
+@s 93,,OK,872,OK
+@s 97,,RJ,873,OK
+@s 98,,WA,874,OK
+@s 98,,OK,875,OK
+@s 106,,RJ,880,OK
+@s 97,,RJ,880,OK
+@s 91,,RJ,880,OK
+@s 91,,RJ,881,OK
+@s 91,,RJ,882,OK
+@s 98,,WA,882,OK
+@s 91,,RJ,882,OK
+@s 91,,RJ,882,OK
+@s 100,,RJ,882,OK
+@s 91,,RJ,883,OK
+@s 91,,RJ,884,OK
+@s 105,,WA,885,OK
+@s 91,,RJ,885,OK
+@s 100,,RJ,885,OK
+@s 91,,RJ,885,OK
+@s 91,,RJ,886,OK
+@s 97,,RJ,887,OK
+@s 100,,RJ,887,OK
+@s 96,,WA,888,OK
+@s 89,,RJ,888,OK
+@s 96,,RJ,890,OK
+@s 91,,WA,891,OK
+@s 99,,WA,891,OK
+@s 91,,WA,892,OK
+@s 99,,WA,892,OK
+@s 97,,RJ,892,OK
+@s 90,,RJ,894,OK
+@s 97,,RJ,894,OK
+@s 88,,RJ,894,OK
+@s 99,,RT,895,OK
+@s 99,,WA,895,OK
+@s 94,,WA,895,OK
+@s 96,,WA,895,OK
+@s 91,,RJ,896,OK
+@s 91,,RJ,896,OK
+@s 98,,WA,896,OK
+@s 101,,WA,896,OK
+@s 91,,RJ,896,OK
+@s 91,,RJ,896,OK
+@s 97,,RJ,897,OK
+@s 91,,RJ,897,OK
+@s 101,,WA,897,OK
+@s 91,,WA,897,OK
+@s 99,,RT,897,OK
+@s 103,,RJ,898,OK
+@s 98,,WA,898,OK
+@s 101,,WA,898,OK
+@s 91,,RJ,898,OK
+@s 91,,RJ,898,OK
+@s 98,,WA,898,OK
+@s 103,,WA,898,OK
+@s 91,,RJ,898,OK
+@s 98,,WA,898,OK
+@s 91,,RJ,898,OK
+@s 103,,WA,899,OK
+@s 99,,RT,899,OK
+@s 100,,RJ,899,OK
+@s 105,,WA,899,OK
+@s 100,,RJ,899,OK
+@s 98,,WA,899,OK
+@s 91,,RJ,899,OK
+@s 97,,RJ,899,OK
+@s 97,,RJ,899,OK
+@s 98,,WA,899,OK
+@s 91,,RJ,899,OK
+@s 97,,RJ,899,OK
+@s 103,,RJ,899,OK
+@s 91,,RJ,899,OK
